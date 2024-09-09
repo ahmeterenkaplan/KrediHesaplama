@@ -1,15 +1,15 @@
 [
   {
     "ContainingType": "UsersController",
-    "Method": "AddUser",
-    "RelativePath": "api/Users",
+    "Method": "AccountStatus",
+    "RelativePath": "api/Users/approval",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDto",
-        "Type": "UserDto",
+        "Name": "accountStatusDto",
+        "Type": "AccountStatusDto",
         "IsRequired": true
       }
     ],
@@ -26,6 +26,22 @@
       {
         "Name": "userLoginDto",
         "Type": "UserLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
+    "Method": "AddUser",
+    "RelativePath": "api/Users/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "UserDto",
         "IsRequired": true
       }
     ],

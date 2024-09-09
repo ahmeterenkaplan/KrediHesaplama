@@ -92,6 +92,37 @@ namespace KrediWebApplication1
                 throw new Exception("An error occurred during login: " + ex.Message);
             }
         }
+        // Hesabı aktifleştiren ya da pasifleştiren bir saklı yordamı çağıran asenkron metod    
+        public async Task<string> AccountStatusAsync(string userName, string accountStatus)
+        {
+            try
+            {
+                using (var command = _context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "dbo.spAccountApproval";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    // Input parametreleri ekle
+                    command.Parameters.Add(new SqlParameter("@UserName", userName));
+                    command.Parameters.Add(new SqlParameter("@AccountStatus", accountStatus));
+
+                    await _context.Database.OpenConnectionAsync();
+                    await command.ExecuteNonQueryAsync();
+                    await _context.Database.CloseConnectionAsync();
+
+                    // Durum başarıyla güncellenmişse herhangi bir çıktı yoksa bir mesaj döndürebilirsiniz
+                    return "Account status updated successfully.";
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while updating the account status: " + ex.Message);
+            }
+        }
+
+
+
+
 
 
     }

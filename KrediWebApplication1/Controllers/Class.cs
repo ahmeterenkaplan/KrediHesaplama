@@ -12,7 +12,7 @@ public class UsersController : ControllerBase
         _userRepository = userRepository;
     }
     //register
-    [HttpPost]
+    [HttpPost("register")]
     public async Task<IActionResult> AddUser(UserDto userDto)
     {
         var userId = await _userRepository.AddUserAsync(userDto.UserName, userDto.First_Name, userDto.Surname, userDto.Pass);
@@ -32,6 +32,25 @@ public class UsersController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+    // hesabı aktifleştiren ya da pasifleştiren (approval) 
+    [HttpPost("approval")]
+    public async Task<IActionResult> AccountStatus(AccountStatusDto accountStatusDto)
+    {
+        try
+        {
+            var account = await _userRepository.AccountStatusAsync(accountStatusDto.UserName, accountStatusDto.Account);
+            return Ok(new { Account = account });
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+
+
+
+
 }
 //register
 public class UserDto
@@ -47,4 +66,11 @@ public class UserLoginDto
     public string UserName { get; set; }
     public string Pass { get; set; }
 }
+//hesap durumu
+public class AccountStatusDto
+{
+    public string UserName { get; set; }
+    public string Account { get; set; }
+}
+
 
