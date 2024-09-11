@@ -1,6 +1,32 @@
 [
   {
     "ContainingType": "UsersController",
+    "Method": "GetActiveUsers",
+    "RelativePath": "api/Users/active",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
+    "Method": "AddCredit",
+    "RelativePath": "api/Users/addcredit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "creditDto",
+        "Type": "CreditDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
     "Method": "AccountStatus",
     "RelativePath": "api/Users/approval",
     "HttpMethod": "POST",
@@ -13,6 +39,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
+    "Method": "GetInAppUsers",
+    "RelativePath": "api/Users/inapproval",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -42,6 +78,22 @@
       {
         "Name": "userDto",
         "Type": "UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
+    "Method": "AddTaksit",
+    "RelativePath": "api/Users/taksitEkle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taksitDto",
+        "Type": "TaksitDto",
         "IsRequired": true
       }
     ],

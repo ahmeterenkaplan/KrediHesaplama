@@ -7,6 +7,9 @@ namespace KrediWebApplication1.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         // DbSet tanımı gerekmez, çünkü direkt Stored Procedure kullanacağız.
+        
     }
+    
+
 
 }

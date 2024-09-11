@@ -119,7 +119,129 @@ namespace KrediWebApplication1
                 throw new Exception("An error occurred while updating the account status: " + ex.Message);
             }
         }
+        // onay bekleyen getir
+        public async Task<String> GetActiveUsersAsync()
+        {
+            try
+            {
+                using (var command = _context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "dbo.spGetApprovedUsers";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    var users = string.Empty;
+                    await _context.Database.OpenConnectionAsync();
 
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var userName = reader["UserName"].ToString();
+                            var firstName = reader["First_Name"].ToString();
+                            var surname = reader["Surname"].ToString();
+
+                            users += $"{userName} - {firstName} {surname}, ";
+                        }
+                    }
+
+                    await _context.Database.CloseConnectionAsync();
+
+                    return users.TrimEnd(',', ' '); // Onayda bekleyen kullanıcıları döndür
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while getting active users: " + ex.Message);
+            }
+        }
+
+        // onay bekleyen getir
+        public async Task<String> GetInAppUsersAsync()
+        {
+            try
+            {
+                using (var command = _context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "dbo.spGetInApprovedUsers";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    var users = string.Empty;
+                    await _context.Database.OpenConnectionAsync();
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var userName = reader["UserName"].ToString();
+                            var firstName = reader["First_Name"].ToString();
+                            var surname = reader["Surname"].ToString();
+
+                            users += $"{userName} - {firstName} {surname}, ";
+                        }
+                    }
+
+                    await _context.Database.CloseConnectionAsync();
+
+                    return users.TrimEnd(',', ' '); // Onayda bekleyen kullanıcıları döndür
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while getting active users: " + ex.Message);
+            }
+        }
+
+
+        // Kredi eklemek için bir saklı yordamı çağıran asenkron metod
+        public async Task<Guid> AddCreditAsync(string userName, decimal spentMoney, DateTime firstTimeDate, int timeCount)
+{
+    try
+    {
+        using (var command = _context.Database.GetDbConnection().CreateCommand())
+        {
+            command.CommandText = "dbo.spAddCreditTransaction";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            command.Parameters.Add(new SqlParameter("@UserName", userName));
+            command.Parameters.Add(new SqlParameter("@SpentMoney", spentMoney));
+            command.Parameters.Add(new SqlParameter("@FirstTimeDate", firstTimeDate));
+            command.Parameters.Add(new SqlParameter("@TimeCount", timeCount));
+
+            await _context.Database.OpenConnectionAsync();
+            await command.ExecuteNonQueryAsync();
+            await _context.Database.CloseConnectionAsync();
+        }
+    }
+    catch (SqlException ex)
+    {
+        throw new Exception("An error occurred while adding the credit: " + ex.Message);
+    }
+
+    return Guid.NewGuid();  // Eğer kredi ID'sini kullanmak istiyorsanız, burayı ihtiyacınıza göre düzenleyin
+}
+        public async Task AddTaksitAsync(Guid krediID, DateTime taksitTarihi, decimal tutar, int taksitAyi)
+        {
+            try
+            {
+                using (var command = _context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "dbo.spEkleTaksit";
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    // Mevcut bir krediID'yi kullanarak Taksit ekleme işlemi
+                    command.Parameters.Add(new SqlParameter("@KrediID", krediID)); // KrediID'yi gönderiyoruz
+                    command.Parameters.Add(new SqlParameter("@TaksitTarihi", taksitTarihi));
+                    command.Parameters.Add(new SqlParameter("@Tutar", tutar));
+                    command.Parameters.Add(new SqlParameter("@TaksitAyi", taksitAyi));
+
+                    await _context.Database.OpenConnectionAsync();
+                    await command.ExecuteNonQueryAsync();
+                    await _context.Database.CloseConnectionAsync();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Taksit eklenirken bir hata oluştu: " + ex.Message);
+            }
+        }
 
 
 
@@ -127,4 +249,11 @@ namespace KrediWebApplication1
 
     }
 }
+
+
+
+
+
+    
+
 

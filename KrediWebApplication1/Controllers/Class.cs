@@ -46,7 +46,41 @@ public class UsersController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+    // aktif kullanıcıları listele
+    [HttpGet("active")]
+    public async Task<IActionResult> GetActiveUsers()
+    {
 
+        var users = await _userRepository.GetActiveUsersAsync();
+        return Ok(users);
+    }
+    // onay bekleyen kullanıcıları listele
+    [HttpGet("inapproval")]
+    public async Task<IActionResult> GetInAppUsers()
+    {
+        var users = await _userRepository.GetInAppUsersAsync();
+        return Ok(users);
+    }
+
+
+
+
+    // yeni kredi ekleyen 
+    [HttpPost("addcredit")]
+    public async Task<IActionResult> AddCredit(CreditDto creditDto)
+    {
+        var creditId = await _userRepository.AddCreditAsync(creditDto.UserName, creditDto.SpentMoney, creditDto.FirstTimeDate,creditDto.TimeCount);
+        return Ok(new { CreditId = creditId });
+    }
+    //yeni taksit ekleyen
+    [HttpPost("taksitEkle")]
+    public async Task<IActionResult> AddTaksit(TaksitDto taksitDto)
+    {
+        // Mevcut krediID kullanılarak taksit ekleniyor
+        await _userRepository.AddTaksitAsync(taksitDto.KrediID ,taksitDto.TaksitTarihi, taksitDto.Tutar, taksitDto.TaksitAyi);
+
+        return Ok(new { Message = "Taksit başarıyla eklendi" });
+    }
 
 
 
@@ -72,5 +106,21 @@ public class AccountStatusDto
     public string UserName { get; set; }
     public string Account { get; set; }
 }
-
+//kredi ekleme
+public class CreditDto
+{
+    public string UserName { get; set; }
+    public decimal SpentMoney { get; set; }
+    public DateTime FirstTimeDate { get; set; }
+    public int TimeCount { get; set; }
+}
+//taksit ekleme 
+public class TaksitDto
+{
+    
+    public DateTime TaksitTarihi { get; set; }
+    public decimal Tutar { get; set; }
+    public int TaksitAyi { get; set; }
+    public Guid KrediID { get; set; }
+}
 

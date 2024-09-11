@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|c:\\users\\e7ka\\source\\repos\\kredihesaplama\\krediwebapplication1\\controllers\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|solutionrelative:krediwebapplication1\\controllers\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|c:\\users\\e7ka\\source\\repos\\kredihesaplama\\krediwebapplication1\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|solutionrelative:krediwebapplication1\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|c:\\users\\e7ka\\source\\repos\\kredihesaplama\\krediwebapplication1\\controllers\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|solutionrelative:krediwebapplication1\\controllers\\class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|c:\\users\\e7ka\\source\\repos\\kredihesaplama\\krediwebapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D7E10374-FDCD-4ADA-B788-3BB7A5EB154E}|KrediWebApplication1\\KrediWebApplication1.csproj|solutionrelative:krediwebapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,39 +21,52 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 238,
+          "DockedWidth": 222,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\UserRepository.cs",
-              "RelativeDocumentMoniker": "KrediWebApplication1\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\UserRepository.cs",
-              "RelativeToolTip": "KrediWebApplication1\\UserRepository.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAAAHIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T08:15:19.378Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 230,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Class.cs",
               "DocumentMoniker": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\Controllers\\Class.cs",
               "RelativeDocumentMoniker": "KrediWebApplication1\\Controllers\\Class.cs",
               "ToolTip": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\Controllers\\Class.cs",
               "RelativeToolTip": "KrediWebApplication1\\Controllers\\Class.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswC4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAqwG4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T12:41:12.784Z",
+              "WhenOpened": "2024-09-10T12:03:55.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "KrediWebApplication1\\Program.cs",
+              "ToolTip": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\Program.cs",
+              "RelativeToolTip": "KrediWebApplication1\\Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T11:23:40.286Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\UserRepository.cs",
+              "RelativeDocumentMoniker": "KrediWebApplication1\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediWebApplication1\\UserRepository.cs",
+              "RelativeToolTip": "KrediWebApplication1\\UserRepository.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAQwHYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T08:15:19.378Z",
               "EditorCaption": ""
             }
           ]
