@@ -1,4 +1,5 @@
-﻿namespace KrediHesaplama
+﻿using System.Collections.Generic;
+namespace KrediHesaplama
 {
     class Program
     {

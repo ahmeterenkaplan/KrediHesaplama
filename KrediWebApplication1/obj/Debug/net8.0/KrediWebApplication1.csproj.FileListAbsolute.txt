@@ -137,3 +137,8 @@ C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\obj\Debug\net8.0\KrediWebApplication1.Properties.Resources.resources
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\obj\Debug\net8.0\KrediWebApplication1.csproj.GenerateResource.cache
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\obj\Debug\net8.0\KrediWebApplication1.sourcelink.json
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\KrediHesaplama.deps.json
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\KrediHesaplama.runtimeconfig.json
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\KrediHesaplama.exe
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\KrediHesaplama.dll
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediWebApplication1\bin\Debug\net8.0\KrediHesaplama.pdb

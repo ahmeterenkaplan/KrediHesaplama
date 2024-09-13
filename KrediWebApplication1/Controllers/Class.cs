@@ -62,6 +62,23 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
+    [HttpGet("credit-taksit-details/{userId}")]
+    public async Task<IActionResult> GetCreditAndTaksitDetails(Guid userId)
+    {
+        try
+        {
+            var result = await _userRepository.GetCreditAndTaksitDetailsAsync(userId);
+            if (result == null || result.Count == 0)
+            {
+                return NotFound("No credit or taksit details found for the user.");
+            }
+            return Ok(result);  // Başarılı durumda 200 ve veriler gönderilir
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, "An error occurred while processing your request.");
+        }
+    }
 
 
 
@@ -77,7 +94,7 @@ public class UsersController : ControllerBase
     public async Task<IActionResult> AddTaksit(TaksitDto taksitDto)
     {
         // Mevcut krediID kullanılarak taksit ekleniyor
-        await _userRepository.AddTaksitAsync(taksitDto.KrediID ,taksitDto.TaksitTarihi, taksitDto.Tutar, taksitDto.TaksitAyi);
+        await _userRepository.AddTaksitAsync(taksitDto.KrediID ,taksitDto.TaksitTarihi, taksitDto.Tutar, taksitDto.TaksitAyi,taksitDto.Aciklama);
 
         return Ok(new { Message = "Taksit başarıyla eklendi" });
     }
@@ -122,5 +139,18 @@ public class TaksitDto
     public decimal Tutar { get; set; }
     public int TaksitAyi { get; set; }
     public Guid KrediID { get; set; }
+    public string Aciklama { get; set; }
+}
+public class CreditTaksitDetailsDto
+{
+    public Guid UserID { get; set; }            // uniqueidentifier veri tipi için Guid kullanıyoruz
+    public decimal Spent_Money { get; set; }
+    public DateTime First_Time_Date { get; set; }
+    public int Time_Count { get; set; }
+    public DateTime TaksitTarihi { get; set; }
+    public decimal Tutar { get; set; }
+    public int TaksitAyi { get; set; }
+    public string Aciklama { get; set; }
+    public Guid KrediID { get; set; }           // uniqueidentifier veri tipi için Guid kullanıyoruz
 }
 

@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "KrediWebApplication1.Controllers.KrediHesaplamaController",
+    "Method": "Hesapla",
+    "RelativePath": "api/KrediHesaplama/hesapla",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "krediDto",
+        "Type": "KrediWebApplication1.Controllers.KrediHesaplamaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "UsersController",
     "Method": "GetActiveUsers",
     "RelativePath": "api/Users/active",
@@ -36,6 +52,22 @@
       {
         "Name": "accountStatusDto",
         "Type": "AccountStatusDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UsersController",
+    "Method": "GetCreditAndTaksitDetails",
+    "RelativePath": "api/Users/credit-taksit-details/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

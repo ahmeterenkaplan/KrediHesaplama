@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KrediWebApplication1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fa3e60c6422a580a977c676811c64e2744a4671")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20629542798a0df8d09862c7c34e9945ad27aace")]
 [assembly: System.Reflection.AssemblyProductAttribute("KrediWebApplication1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KrediWebApplication1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

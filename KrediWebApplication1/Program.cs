@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using KrediWebApplication1.Data;
 using KrediWebApplication1;
+using KrediHesaplama;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 // UserRepository'yi Dependency Injection konteynerine ekleyin
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<KrediHesaplayici>();
 
 // CORS ayarlarýný ekleyin
 builder.Services.AddCors(options =>

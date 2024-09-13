@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KrediHesaplama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20629542798a0df8d09862c7c34e9945ad27aace")]
 [assembly: System.Reflection.AssemblyProductAttribute("KrediHesaplama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KrediHesaplama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

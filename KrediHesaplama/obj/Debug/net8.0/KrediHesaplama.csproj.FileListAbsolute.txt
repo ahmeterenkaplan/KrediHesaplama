@@ -61,3 +61,4 @@ C:\Users\E7KA\source\repos\KrediHesaplama\KrediHesaplama\bin\Debug\net8.0\runtim
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediHesaplama\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediHesaplama\obj\Debug\net8.0\KrediHesaplama.csproj.AssemblyReference.cache
 C:\Users\E7KA\source\repos\KrediHesaplama\KrediHesaplama\obj\Debug\net8.0\KrediHes.8C3CBA91.Up2Date
+C:\Users\E7KA\source\repos\KrediHesaplama\KrediHesaplama\obj\Debug\net8.0\KrediHesaplama.sourcelink.json

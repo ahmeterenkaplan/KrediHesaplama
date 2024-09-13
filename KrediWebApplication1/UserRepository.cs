@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Data;
 using System.Threading.Tasks;
 
 namespace KrediWebApplication1
@@ -139,7 +140,7 @@ namespace KrediWebApplication1
                             var firstName = reader["First_Name"].ToString();
                             var surname = reader["Surname"].ToString();
 
-                            users += $"{userName} - {firstName} {surname}, ";
+                            users += $"{userName} {firstName} {surname} , ";
                         }
                     }
 
@@ -174,19 +175,62 @@ namespace KrediWebApplication1
                             var firstName = reader["First_Name"].ToString();
                             var surname = reader["Surname"].ToString();
 
-                            users += $"{userName} - {firstName} {surname}, ";
+                            users += $"{userName} {firstName} {surname}  ";
                         }
                     }
 
                     await _context.Database.CloseConnectionAsync();
 
-                    return users.TrimEnd(',', ' '); // Onayda bekleyen kullanıcıları döndür
+                    return users.TrimEnd(' ', ','); // Onayda bekleyen kullanıcıları döndür
                 }
             }
             catch (SqlException ex)
             {
                 throw new Exception("An error occurred while getting active users: " + ex.Message);
             }
+        }
+        public async Task<List<CreditTaksitDetailsDto>> GetCreditAndTaksitDetailsAsync(Guid userId)
+        {
+            var result = new List<CreditTaksitDetailsDto>();
+
+            // SQL bağlantısını kullanarak stored procedure çağırıyoruz
+            using (var command = _context.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = "spGetCreditAndTaksitDetails";  // Stored Procedure adı
+                command.CommandType = CommandType.StoredProcedure;
+
+                // UserID parametresini ekliyoruz
+                var userIdParam = new SqlParameter("@UserID", SqlDbType.UniqueIdentifier)
+                {
+                    Value = userId
+                };
+                command.Parameters.Add(userIdParam);
+
+                _context.Database.OpenConnection();
+
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    while (await reader.ReadAsync())
+                    {
+                        var details = new CreditTaksitDetailsDto
+                        {
+                            UserID = reader.GetGuid(reader.GetOrdinal("UserID")),
+                            Spent_Money = reader.GetDecimal(reader.GetOrdinal("Spent_Money")),
+                            First_Time_Date = reader.GetDateTime(reader.GetOrdinal("First_Time_Date")),
+                            Time_Count = reader.GetInt32(reader.GetOrdinal("Time_Count")),
+                            TaksitTarihi = reader.GetDateTime(reader.GetOrdinal("TaksitTarihi")),
+                            Tutar = reader.GetDecimal(reader.GetOrdinal("Tutar")),
+                            TaksitAyi = reader.GetInt32(reader.GetOrdinal("TaksitAyi")),
+                            Aciklama = reader.GetString(reader.GetOrdinal("Aciklama")),
+                            KrediID = reader.GetGuid(reader.GetOrdinal("KrediID"))
+                        };
+
+                        result.Add(details);
+                    }
+                }
+            }
+
+            return result;
         }
 
 
@@ -217,7 +261,7 @@ namespace KrediWebApplication1
 
     return Guid.NewGuid();  // Eğer kredi ID'sini kullanmak istiyorsanız, burayı ihtiyacınıza göre düzenleyin
 }
-        public async Task AddTaksitAsync(Guid krediID, DateTime taksitTarihi, decimal tutar, int taksitAyi)
+        public async Task AddTaksitAsync(Guid krediID, DateTime taksitTarihi, decimal tutar, int taksitAyi,string aciklama)
         {
             try
             {
@@ -231,6 +275,7 @@ namespace KrediWebApplication1
                     command.Parameters.Add(new SqlParameter("@TaksitTarihi", taksitTarihi));
                     command.Parameters.Add(new SqlParameter("@Tutar", tutar));
                     command.Parameters.Add(new SqlParameter("@TaksitAyi", taksitAyi));
+                    command.Parameters.Add(new SqlParameter("@Aciklama", aciklama));
 
                     await _context.Database.OpenConnectionAsync();
                     await command.ExecuteNonQueryAsync();

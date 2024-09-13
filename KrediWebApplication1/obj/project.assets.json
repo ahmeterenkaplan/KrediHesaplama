@@ -1589,6 +1589,20 @@
             "rid": "win"
           }
         }
+      },
+      "KrediHesaplama/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/KrediHesaplama.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KrediHesaplama.dll": {}
+        }
       }
     }
   },
@@ -4531,10 +4545,16 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "KrediHesaplama/1.0.0": {
+      "type": "project",
+      "path": "../KrediHesaplama/KrediHesaplama.csproj",
+      "msbuildProject": "../KrediHesaplama/KrediHesaplama.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "KrediHesaplama >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
       "Swashbuckle.AspNetCore >= 6.7.3"
@@ -4572,7 +4592,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediHesaplama\\KrediHesaplama.csproj": {
+              "projectPath": "C:\\Users\\E7KA\\source\\repos\\KrediHesaplama\\KrediHesaplama\\KrediHesaplama.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
